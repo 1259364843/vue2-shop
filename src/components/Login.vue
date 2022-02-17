@@ -95,6 +95,7 @@ export default {
         }
         // 请求登录
         const res = await userLogin(this.loginForm)
+        console.log(res)
         if (res.meta.status !== 200) {
           this.loginLoading = false
           return this.$message.error({

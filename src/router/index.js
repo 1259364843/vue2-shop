@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 // 组件导入
 import Login from '../components/Login.vue'
 import Home from '../components/home/Home.vue'
+
+import User from '../components/home/users/User.vue'
 Vue.use(VueRouter)
 
 // 路由规则
@@ -19,7 +21,13 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '/home/users',
+        component: User
+      }
+    ]
   }
 ]
 
