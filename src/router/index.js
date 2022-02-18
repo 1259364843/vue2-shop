@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/home/Home.vue'
 
-import User from '../components/home/users/User.vue'
+import UserList from '../components/home/users/UserList.vue'
 Vue.use(VueRouter)
 
 // 路由规则
@@ -25,7 +25,7 @@ const routes = [
     children: [
       {
         path: '/home/users',
-        component: User
+        component: UserList
       }
     ]
   }

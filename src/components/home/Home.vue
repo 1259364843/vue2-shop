@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { getMenus } from '../../services/home'
 // 组件
 import Aside from './Aside.vue'
 export default {

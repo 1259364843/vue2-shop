@@ -23,7 +23,7 @@
               <span>{{ item.authName }}</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/home/' + sunItem.path" v-for="sunItem in item.children" :key="sunItem.id" @click="saveActivePath('/' + sunItem.path)">
+            <el-menu-item :index="'/home/' + sunItem.path" v-for="sunItem in item.children" :key="sunItem.id" @click="saveActivePath('/home/' + sunItem.path)">
               <template slot="title">
                 <!-- 二级菜单的模板区域 -->
                 <i class="el-icon-menu"></i>
@@ -82,7 +82,10 @@ export default {
     async getMenuList() {
       const res = await getMenus()
       if (res && res.meta.status !== 200) return this.$message.error(res.meta.msg)
-      this.$message.success(res.meta.msg)
+      this.$message.success({
+        message: res.meta.msg,
+        center: true
+      })
       res.data.unshift(this.welcome)
       this.menuList = res.data
     },

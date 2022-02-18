@@ -6,6 +6,7 @@ import request from './request'
 export function userLogin(data) {
   const { username, password } = data
   return request({
+    method: 'POST',
     url: 'login',
     params: {
       username,
