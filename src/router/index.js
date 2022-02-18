@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 
 // 组件导入
 import Login from '../components/Login.vue'
-import Home from '../components/home/Home.vue'
+import Home from '../views/home/Home.vue'
 
 import UserList from '../components/home/users/UserList.vue'
+import RolesList from '../views/home/PermissionsManagement/RolesList.vue'
+import RightsList from '../views/home/PermissionsManagement/RightsList.vue'
 Vue.use(VueRouter)
 
 // 路由规则
@@ -26,6 +28,14 @@ const routes = [
       {
         path: '/home/users',
         component: UserList
+      },
+      {
+        path: '/home/roles',
+        component: RolesList
+      },
+      {
+        path: '/home/rights',
+        component: RightsList
       }
     ]
   }
