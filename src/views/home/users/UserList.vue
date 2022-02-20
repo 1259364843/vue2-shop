@@ -174,7 +174,7 @@
 </template>
 
 <script>
-import Breadcrumb from '../../common/breadcrumb/Breadcrumb.vue'
+import Breadcrumb from '../../../components/common/breadcrumb/Breadcrumb.vue'
 // 网络请求方法
 import {
   getUserList,

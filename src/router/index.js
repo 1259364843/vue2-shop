@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../views/home/Home.vue'
 
-import UserList from '../components/home/users/UserList.vue'
+import UserList from '../views/home/users/UserList.vue'
 import RolesList from '../views/home/PermissionsManagement/RolesList.vue'
 import RightsList from '../views/home/PermissionsManagement/RightsList.vue'
 Vue.use(VueRouter)
