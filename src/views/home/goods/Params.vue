@@ -210,7 +210,7 @@
 <script>
 import {
   getCategories,
-  getCateParamListById,
+  getCateParamList,
   addCateParam,
   getParamById,
   updateParamById,
@@ -283,7 +283,7 @@ export default {
       }
       // 证明选中的是三级分类
       // 根据所选的分类的ID,和当前所处的面板,获取对应的参数
-      const res = await getCateParamListById(this.cateId, {
+      const res = await getCateParamList(this.cateId, {
         sel: this.activeName
       })
       if (res.meta.status !== 200) {

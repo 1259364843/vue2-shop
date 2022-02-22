@@ -9,7 +9,9 @@ import request from './request'
  * @param {pagesize} 每⻚显示多少条数据 【可选参数】如果不传递，则默认获取所有分类
  * @returns
  */
-export function getCategories(queryInfo = { type: '', pagenum: '', pagesize: '' }) {
+export function getCategories(
+  queryInfo = { type: '', pagenum: '', pagesize: '' }
+) {
   const { type, pagenum, pagesize } = queryInfo
   return request({
     method: 'GET',
@@ -87,7 +89,7 @@ export function deleteCateById(id) {
  * @param {sel} [only,many] 不能为空,通过 only 或 many 来获取分类静态参数还是动态参数
  * @returns
  */
-export function getCateParamListById(id, params) {
+export function getCateParamList(id, params) {
   const { sel } = params
   return request({
     method: 'GET',
@@ -169,5 +171,68 @@ export function deleteParamById(id, attrId) {
   return request({
     method: 'DELETE',
     url: `categories/${id}/attributes/${attrId}`
+  })
+}
+
+/**
+ * 11.商品列表数据
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {:attrId} 属性id 不能为空 携带在url中
+ * @returns
+ */
+export function getGoodsList(queryInfo) {
+  const { query = '', pagenum, pagesize } = queryInfo
+  return request({
+    method: 'GET',
+    url: 'goods',
+    params: {
+      query,
+      pagenum,
+      pagesize
+    }
+  })
+}
+
+/**
+ * 11.商品列表数据
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {:attrId} 属性id 不能为空 携带在url中
+ * @returns
+ */
+export function deleteGoodById(id) {
+  return request({
+    method: 'DELETE',
+    url: `goods/${id}`
+  })
+}
+
+/**
+ * 12.添加商品
+ * @returns
+ */
+export function addGood(data) {
+  const {
+    goods_name,
+    goods_cat,
+    goods_price,
+    goods_number,
+    goods_weight,
+    goods_introduce,
+    pics,
+    attrs
+  } = data
+  return request({
+    method: 'POST',
+    url: 'goods',
+    data: {
+      goods_name,
+      goods_cat,
+      goods_price,
+      goods_number,
+      goods_weight,
+      goods_introduce,
+      pics,
+      attrs
+    }
   })
 }

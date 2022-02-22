@@ -26,7 +26,7 @@ body,
 .el-scrollbar__wrap {
   height: 290px !important;
 }
+/* 富文本编辑器 */
 .ql-editor {
   min-height: 500px;
 }
-
