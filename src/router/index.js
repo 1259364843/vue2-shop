@@ -9,6 +9,7 @@ import UserList from '../views/home/users/UserList.vue'
 import RolesList from '../views/home/PermissionsManagement/RolesList.vue'
 import RightsList from '../views/home/PermissionsManagement/RightsList.vue'
 import Cate from '../views/home/goods/Cate.vue'
+import Params from '../views/home/goods/Params.vue'
 Vue.use(VueRouter)
 
 // 路由规则
@@ -41,6 +42,10 @@ const routes = [
       {
         path: '/home/categories',
         component: Cate
+      },
+      {
+        path: '/home/params',
+        component: Params
       }
     ]
   }

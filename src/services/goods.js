@@ -4,10 +4,12 @@ import request from './request'
 
 /**
  * 1.获取商品分类数据
- * @param {type} 分级参数
+ * @param {type} 分级参数 值:1，2，3 分别表示显示一层二层三层分类列表 【可选参数】如果不传递，则默认获取所有级别的分类
+ * @param {pagenum} 当前⻚码值 【可选参数】如果不传递，则默认获取所有分类
+ * @param {pagesize} 每⻚显示多少条数据 【可选参数】如果不传递，则默认获取所有分类
  * @returns
  */
-export function getCategories(queryInfo) {
+export function getCategories(queryInfo = { type: '', pagenum: '', pagesize: '' }) {
   const { type, pagenum, pagesize } = queryInfo
   return request({
     method: 'GET',
@@ -76,5 +78,96 @@ export function deleteCateById(id) {
   return request({
     method: 'DELETE',
     url: `categories/${id}`
+  })
+}
+
+/**
+ * 6.根据ID获取分类参数列表
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {sel} [only,many] 不能为空,通过 only 或 many 来获取分类静态参数还是动态参数
+ * @returns
+ */
+export function getCateParamListById(id, params) {
+  const { sel } = params
+  return request({
+    method: 'GET',
+    url: `categories/${id}/attributes`,
+    params: {
+      sel
+    }
+  })
+}
+
+/**
+ * 7.添加动态参数或者静态属性
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {attr_name} 参数名称 不能为空
+ * @param {attr_sel} [only,many] 不能为空
+ * @param {attr_vals} 如果是 many 就需要填写值的选项，以逗号分隔 可选
+ * @returns
+ */
+export function addCateParam(id, data) {
+  const { attr_name, attr_sel, attr_vals } = data
+  return request({
+    method: 'POST',
+    url: `categories/${id}/attributes`,
+    data: {
+      attr_name,
+      attr_sel,
+      attr_vals
+    }
+  })
+}
+
+/**
+ * 8.根据id查询参数
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {:attrId} 属性id 不能为空 携带在url中
+ * @param {attr_sel} [only,many] 不能为空
+ * @param {attr_vals} 如果是 many 就需要填写值的选项，以逗号分隔 可选
+ * @returns
+ */
+export function getParamById(id, attrId, params) {
+  const { attr_sel, attr_vals = '' } = params
+  return request({
+    method: 'GET',
+    url: `categories/${id}/attributes/${attrId}`,
+    params: {
+      attr_sel,
+      attr_vals
+    }
+  })
+}
+/**
+ * 9.更新编辑提交参数
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {:attrId} 属性id 不能为空 携带在url中
+ * @param {attr_sel} [only,many] 不能为空
+ * @param {attr_vals} 参数的属性值  可选参数，携带在 请求体 中
+ * @returns
+ */
+export function updateParamById(id, attrId, data) {
+  console.log(data, '11323')
+  const { attr_name, attr_sel, attr_vals = '' } = data
+  return request({
+    method: 'PUT',
+    url: `categories/${id}/attributes/${attrId}`,
+    data: {
+      attr_name,
+      attr_sel,
+      attr_vals
+    }
+  })
+}
+/**
+ * 10.删除参数
+ * @param {:id} 分类id 不能为空 携带在url中
+ * @param {:attrId} 属性id 不能为空 携带在url中
+ * @returns
+ */
+export function deleteParamById(id, attrId) {
+  return request({
+    method: 'DELETE',
+    url: `categories/${id}/attributes/${attrId}`
   })
 }
