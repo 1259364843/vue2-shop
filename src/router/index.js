@@ -12,6 +12,8 @@ import Cate from '../views/home/goods/Cate.vue'
 import Params from '../views/home/goods/Params.vue'
 import GoodsList from '../views/home/goods/list/List.vue'
 import Add from '../views/home/goods/list/children/Add.vue'
+import OrderList from '../views/home/order/Order.vue'
+
 Vue.use(VueRouter)
 
 // 路由规则
@@ -56,6 +58,10 @@ const routes = [
       {
         path: '/home/goods/add',
         component: Add
+      },
+      {
+        path: '/home/orders',
+        component: OrderList
       }
     ]
   }
