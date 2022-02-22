@@ -149,7 +149,6 @@ export function getParamById(id, attrId, params) {
  * @returns
  */
 export function updateParamById(id, attrId, data) {
-  console.log(data, '11323')
   const { attr_name, attr_sel, attr_vals = '' } = data
   return request({
     method: 'PUT',

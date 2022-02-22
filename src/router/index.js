@@ -2,19 +2,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // 组件导入
-import Login from '../components/Login.vue'
-import Home from '../views/home/Home.vue'
-
-import Welcome from '../views/home/welcome/Welcome.vue'
-import UserList from '../views/home/users/UserList.vue'
-import RolesList from '../views/home/PermissionsManagement/RolesList.vue'
-import RightsList from '../views/home/PermissionsManagement/RightsList.vue'
-import Cate from '../views/home/goods/Cate.vue'
-import Params from '../views/home/goods/Params.vue'
-import GoodsList from '../views/home/goods/list/List.vue'
-import Add from '../views/home/goods/list/children/Add.vue'
-import OrderList from '../views/home/order/Order.vue'
-import Report from '../views/home/report/Report.vue'
+const Login = () => import(/* webpackChunkName: "login_home_welome" */ 'components/Login.vue')
+const Home = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/Home.vue')
+const Welcome = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/welcome/Welcome.vue')
+const UserList = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/users/UserList.vue')
+const RolesList = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/PermissionsManagement/RolesList.vue')
+const RightsList = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/PermissionsManagement/RightsList.vue')
+const Cate = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/goods/Cate.vue')
+const Params = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/goods/Params.vue')
+const GoodsList = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/goods/list/List.vue')
+const Add = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/goods/list/children/Add.vue')
+const OrderList = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/order/Order.vue')
+const Report = () => import(/* webpackChunkName: "login_home_welome" */ 'views/home/report/Report.vue')
 
 Vue.use(VueRouter)
 
